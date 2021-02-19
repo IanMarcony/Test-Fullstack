@@ -2,72 +2,66 @@ import { Column, Entity, PrimaryColumn } from "typeorm";
 
 @Entity()
 export class Products {
-  @PrimaryColumn({ type: "varchar" })
+  @PrimaryColumn("varchar")
   id: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   name: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   status: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   price: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   oldPrice: string;
 
-  @Column({ type: "text" })
+  @Column("text")
   description: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   apiKey: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   type: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   brand: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   created: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   clientLastUpdated: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   version: string;
 
-  @Column({ type: "varchar" })
+  @Column("varchar")
   url: string;
+  //jsons
+  // @Column("varchar")
+  // skus: string;
 
-  // @Column("json")
-  // skus: JSON[];
+  // @Column("varchar")
+  // auditInfo: string;
 
-  // @Column("json")
-  // auditInfo: JSON;
+  // @Column("varchar")
+  // specs: string;
 
-  // @Column("json")
-  // specs: JSON;
+  // @Column("varchar")
+  // details: string;
 
-  // @Column("json")
-  // details: JSON;
+  @Column("text")
+  categories: string;
 
-  // @Column("json")
-  // categories: JSON[];
+  // @Column("varchar")
+  // extraInfo: string;
 
-  // @Column("json")
-  // extraInfo: JSON;
-
-  // @Column("json")
-  // installment: JSON;
+  // @Column("varchar")
+  // installment: string;
 }
-
-// class Category {
-//   id: string;
-//   name: string;
-//   parents: string[];
-// }
 
 // class Sku {
 //   sku: string;
