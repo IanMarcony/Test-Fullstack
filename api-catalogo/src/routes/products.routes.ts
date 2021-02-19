@@ -9,16 +9,9 @@ const productsRoutes = Router();
 
 productsRoutes.get("/:id/complete", async (req, res) => {
   const { id } = req.params;
-  const productsRepository = getRepository(Products);
-  const product = await productsRepository.findOne({ where: { id } });
-
-  if (!product) {
-    throw new AppError("Product not found!", 404);
-  }
-
-  return res
-    .status(200)
-    .json({ ...product, categories: JSON.parse(product.categories) });
+  const completeProductService = new CompactProductService();
+  const product = await completeProductService.execute({ id });
+  return res.status(200).json(product);
 });
 
 productsRoutes.get("/:id/compact", async (req, res) => {
@@ -30,7 +23,6 @@ productsRoutes.get("/:id/compact", async (req, res) => {
     status,
     categories,
   } = await compactProductService.execute({ id });
-
   return res.status(200).json({ name, price, status, categories });
 });
 
