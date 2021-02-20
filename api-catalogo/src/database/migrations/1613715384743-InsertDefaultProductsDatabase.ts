@@ -7,7 +7,39 @@ interface Category {
   name: string;
   parents: string[];
 }
-
+interface AuditInfo {
+  updatedBy: string;
+  updatedThrough: string;
+}
+interface Details {
+  name: string;
+  brand: string;
+  rating: string;
+  cod_venda: string;
+  precoavista: string;
+}
+interface Installment {
+  count: number;
+  price: number;
+}
+interface ExtraInfo {
+  hash: string;
+}
+interface Images {
+  default: string;
+}
+interface Sku {
+  sku: string;
+  properties: {
+    name: string;
+    installment: Installment;
+    images: Images;
+    price: number;
+    url: string;
+    status: string;
+    oldPrice: number;
+  };
+}
 interface Product {
   id: string;
 
@@ -35,19 +67,21 @@ interface Product {
 
   url: string;
 
-  // skus: JSON;
+  images: Images;
 
-  // auditInfo: JSON;
+  skus: Sku[];
 
-  // specs: JSON;
+  auditInfo: AuditInfo;
 
-  // details: JSON;
+  // specs: Object;
+
+  details: Details;
 
   categories: Category[];
 
-  // extraInfo: JSON;
+  extraInfo: ExtraInfo;
 
-  // installment: JSON;
+  installment: Installment;
 }
 export class InsertDefaultProductsDatabase1613715384743
   implements MigrationInterface {
@@ -69,21 +103,23 @@ export class InsertDefaultProductsDatabase1613715384743
         clientLastUpdated,
         version,
         url,
+        images,
         categories,
-        // auditInfo,
+        auditInfo,
         // specs,
-        // details,
-        // extraInfo,
-        // installment,
-        // skus,
+        details,
+        extraInfo,
+        installment,
+        skus,
       } = products[index];
       var categories_ = JSON.stringify(categories);
-      // var skus_ = JSON.stringify(skus);
-      // var auditInfo_ = JSON.stringify(auditInfo);
+      var images_ = JSON.stringify(images);
+      var skus_ = JSON.stringify(skus);
+      var auditInfo_ = JSON.stringify(auditInfo);
       // var specs_ = JSON.stringify(specs);
-      // var details_ = JSON.stringify(details);
-      // var extraInfo_ = JSON.stringify(extraInfo);
-      // var installment_ = JSON.stringify(installment);
+      var details_ = JSON.stringify(details);
+      var extraInfo_ = JSON.stringify(extraInfo);
+      var installment_ = JSON.stringify(installment);
       await queryRunner.connection
         .createQueryBuilder()
         .insert()
@@ -102,14 +138,16 @@ export class InsertDefaultProductsDatabase1613715384743
           clientLastUpdated,
           version,
           url,
-          // skus: skus_,
-          // auditInfo: auditInfo_,
+          images: images_,
+
+          skus: skus_,
+          auditInfo: auditInfo_,
           // specs: specs_,
-          // details: details_,
+          details: details_,
           categories: categories_,
 
-          // extraInfo: extraInfo_,
-          // installment: installment_,
+          extraInfo: extraInfo_,
+          installment: installment_,
         })
         .execute();
     }

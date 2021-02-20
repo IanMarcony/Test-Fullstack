@@ -41,26 +41,29 @@ export class Products {
   @Column("varchar")
   url: string;
   //jsons
-  // @Column("varchar")
-  // skus: string;
 
-  // @Column("varchar")
-  // auditInfo: string;
+  @Column("text")
+  images: string;
+  @Column("text")
+  skus: string;
 
-  // @Column("varchar")
+  @Column("text")
+  auditInfo: string;
+
+  // @Column("text")
   // specs: string;
 
-  // @Column("varchar")
-  // details: string;
+  @Column("text")
+  details: string;
 
   @Column("text")
   categories: string;
 
-  // @Column("varchar")
-  // extraInfo: string;
+  @Column("text")
+  extraInfo: string;
 
-  // @Column("varchar")
-  // installment: string;
+  @Column("text")
+  installment: string;
 }
 
 // class Sku {

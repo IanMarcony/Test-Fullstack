@@ -59,34 +59,39 @@ export class CreateTableProducts1613682992894 implements MigrationInterface {
             name: "url",
             type: "varchar",
           },
-          // {
-          //   name: "skus",
-          //   type: "varchar",
-          // },
-          // {
-          //   name: "auditInfo",
-          //   type: "varchar",
-          // },
+          {
+            name: "images",
+            type: "text",
+          },
+          {
+            name: "skus",
+            type: "text",
+          },
+          {
+            name: "auditInfo",
+            type: "text",
+          },
           // {
           //   name: "specs",
-          //   type: "varchar",
+          //   type: "text",
+          //   default:"'{}'"
           // },
-          // {
-          //   name: "details",
-          //   type: "varchar",
-          // },
+          {
+            name: "details",
+            type: "text",
+          },
           {
             name: "categories",
             type: "text",
           },
-          // {
-          //   name: "extraInfo",
-          //   type: "varchar",
-          // },
-          // {
-          //   name: "installment",
-          //   type: "varchar",
-          //},
+          {
+            name: "extraInfo",
+            type: "text",
+          },
+          {
+            name: "installment",
+            type: "text",
+          },
         ],
       })
     );
