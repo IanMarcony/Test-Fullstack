@@ -42,6 +42,8 @@ interface Category {
 
 export default class CompleteProductService {
   public async execute({ id }: Request): Promise<Response> {
+    console.log("Procurando produto: " + id);
+
     const productsRepository = getRepository(Products);
     const product = await productsRepository.findOne({ where: { id } });
 

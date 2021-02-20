@@ -1,21 +1,27 @@
 import { Router } from "express";
-import { getRepository } from "typeorm";
 import AppError from "../errors/AppError";
 
-import { Products } from "../models/Products";
 import CompactProductService from "../service/CompactProductService";
+import CompleteProductService from "../service/CompleteProductService";
 
 const productsRoutes = Router();
 
 productsRoutes.get("/:id/complete", async (req, res) => {
   const { id } = req.params;
-  const completeProductService = new CompactProductService();
+  if (!id) {
+    throw new AppError("Product Id is missing");
+  }
+
+  const completeProductService = new CompleteProductService();
   const product = await completeProductService.execute({ id });
   return res.status(200).json(product);
 });
 
 productsRoutes.get("/:id/compact", async (req, res) => {
   const { id } = req.params;
+  if (!id) {
+    throw new AppError("Product Id is missing");
+  }
   const compactProductService = new CompactProductService();
   const {
     name,
