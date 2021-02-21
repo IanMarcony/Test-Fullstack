@@ -1,0 +1,31 @@
+openapi: "3.0.2"
+info:
+  title: API-RECOMENDACAO
+  description: This api returns the recommendeds products
+  version: "1.0"
+servers:
+  - url: http://localhost:5000/
+tags:
+  - name: "Product"
+    description: "Everything about Products"
+schemes:
+  - "http"
+
+paths:
+  /products?maxProducts:
+    get:
+      tags:
+        - "Product"
+      summary: Find recommentations
+      description: This endpoint return the most popular products and products with price reduction
+      parameters:
+        - name: "maxProducts"
+          in: "path"
+          description: "maxProducts of count product"
+          required: true
+      responses:
+        "200":
+          description: OK
+
+security:
+  - securityRequirement: []
