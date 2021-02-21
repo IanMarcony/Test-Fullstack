@@ -15,12 +15,12 @@ interface Response {
 
 export default class CompactProductService {
   public async execute({ id }: Request): Promise<Response> {
-    console.log("Procurando produto: " + id);
+
     const productsRepository = getRepository(Products);
     const product = await productsRepository.findOne({ where: { id } });
 
     if (!product) {
-      throw new AppError("Product not found!", 404);
+      throw new AppError("Product not found!", 204);
     }
     const { name, price, status, categories } = product;
     return { ...product, categories: JSON.parse(categories) };

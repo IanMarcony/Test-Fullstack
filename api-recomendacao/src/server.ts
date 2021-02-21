@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import express, { NextFunction, Request, Response } from "express";
-import "express-async-error";
+import "express-async-errors";
 import routes from "./routes";
 import cors from "cors";
 
@@ -18,6 +18,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
       .status(err.statusCode)
       .json({ status: "error", message: err.message });
   }
+  console.log(err.message)
   return res.status(500).json({
     status: "error",
     message: "Internal server error",

@@ -30,6 +30,8 @@ export default class GetAllProductsService {
       throw new AppError("Error to get most popular/ price reduction products");
     }
 
+
+
     const popProducts = [];
     const redProducts = [];
 
@@ -46,6 +48,8 @@ export default class GetAllProductsService {
 
       popProducts.push(popularProductsResponse.data[index]);
     }
+
+
 
     return { mostPopular: popProducts, priceReduction: redProducts };
   }
