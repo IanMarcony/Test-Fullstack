@@ -21,9 +21,13 @@ button {
   font: 16px Roboto, sans-serif;
 }
 #root {
+  display: flex;
+  flex-direction: column;
   max-width: 960px;
   margin: 0 auto;
   padding: 40px 20px;
+  justify-content: center;
+  align-items: center;
 }
 button {
   cursor: pointer;
