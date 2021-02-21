@@ -13,7 +13,7 @@ body {
   width: 70vw;
   display: flex;
   align-items: center;
-  height: 400px;
+  height: 70vh;
 }
 .showcase a {
   cursor: pointer;
@@ -52,6 +52,11 @@ body {
   overflow-y: hidden;
 
   list-style-type: none;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 10px;
+  padding-right: 2px;
 }
 
 #items li + li {
@@ -61,9 +66,11 @@ body {
 #item {
   display: flex;
   flex-direction: column;
-  width: 20.5%;
+  width: 20%;
   height: 100%;
   margin: 18px;
+  scroll-snap-align: start;
+  pointer-events: none;
 }
 
 #item .image-area {
