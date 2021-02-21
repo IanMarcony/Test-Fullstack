@@ -115,19 +115,19 @@ export default class FilterProductsCatalogoService {
   }: Request): Promise<Response> {
     var popProducts = <Complete[]>[];
     var redProducts = <Complete[]>[];
-    console.log("BUSCANDO: "+mostPopular.length+" products")
+    // console.log("BUSCANDO: "+mostPopular.length+" products")
 
     for (let index = 0; index < mostPopular.length; index++) {
       var { id } = mostPopular[index].recommendedProduct;
       var { id: id2 } = priceReduction[index].recommendedProduct;
 
-        var el=await api_catalogo.get<Complete>(`products/${id}/${endpoint}`)
-        var el2=await api_catalogo.get<Complete>(`products/${id2}/${endpoint}`)
+      var el=await api_catalogo.get<Complete>(`products/${id}/${endpoint}`)
+      var el2=await api_catalogo.get<Complete>(`products/${id2}/${endpoint}`)
 
 
-      console.log("STATUS: el = "+el.status+"  el2 = "+el2.status)
-      console.log("PopProduct["+id+"]: "+el.data.name)
-      console.log("PopProduct["+id2+"]: "+el2.data.name)
+      // console.log("STATUS: el = "+el.status+"  el2 = "+el2.status)
+      // console.log("PopProduct["+id+"]: "+el.data.name)
+      // console.log("PopProduct["+id2+"]: "+el2.data.name)
       if (el.status == 200 && el.data.status == "AVAILABLE") {
         popProducts.push(el.data);
       }
@@ -136,8 +136,8 @@ export default class FilterProductsCatalogoService {
         redProducts.push(el2.data);
       }
     }
-    console.log("PEGOU "+popProducts.length+" products popular")
-    console.log("PEGOU "+redProducts.length+" products reduction")
+    // console.log("PEGOU "+popProducts.length+" products popular")
+    // console.log("PEGOU "+redProducts.length+" products reduction")
     return {
       mostPopularProducts: popProducts,
       priceReductionProducts: redProducts,

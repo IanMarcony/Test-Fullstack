@@ -29,7 +29,7 @@ export default class GetAllProductsService {
     if (!popularProductsResponse || !reductionProductsResponse) {
       throw new AppError("Error to get most popular/ price reduction products");
     }
-
+    // console.log("Got ID's to filter")
 
 
     const popProducts = [];
