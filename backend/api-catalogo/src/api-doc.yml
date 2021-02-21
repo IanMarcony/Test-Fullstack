@@ -1,0 +1,49 @@
+openapi: "3.0.2"
+info:
+  title: API-CATALOGO
+  description: This api returns the information about product from database
+  version: "1.0"
+servers:
+  - url: http://localhost:3333/
+tags:
+  - name: "Product"
+    description: "Everything about Products"
+schemes:
+  - "http"
+
+paths:
+  /products/{id}/complete:
+    get:
+      tags:
+        - "Product"
+      summary: Find product by ID
+      description: This endpoint return the complete information product
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of product to return"
+          required: true
+      responses:
+        "200":
+          description: OK
+        "204":
+          description: No Content
+  /products/{id}/compact:
+    get:
+      tags:
+        - "Product"
+      summary: Find product by ID
+      description: This endpoint return the compact information product
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "ID of product to return"
+          required: true
+
+      responses:
+        "200":
+          description: OK
+        "204":
+          description: No Content
+security:
+  - securityRequirement: []

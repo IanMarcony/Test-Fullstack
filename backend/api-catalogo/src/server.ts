@@ -5,7 +5,7 @@ import AppError from "./errors/AppError";
 import cors from "cors";
 
 import routes from "./routes";
-import "./database";
+// import "./database";
 
 const app = express();
 const PORT = 3333;
