@@ -9,6 +9,7 @@ The Backend is divided in towlayer.
 *  [Typescript Documentation](https://www.typescriptlang.org/docs/)
 *  [NodeJS](https://nodejs.org/en/docs/)
 *  [Typeorm](https://nodejs.org/en/docs/)
+*  [Mysql](https://dev.mysql.com/doc/)
 
 ## API-CATALOGO
 
