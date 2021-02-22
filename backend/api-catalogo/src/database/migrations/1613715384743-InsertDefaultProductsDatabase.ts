@@ -1,5 +1,5 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
-import CatalogDefault from "../../catalog.json";
+import CatalogDefault from "./catalog.json";
 import { Products } from "../../models/Products";
 
 interface Category {
