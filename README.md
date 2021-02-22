@@ -12,7 +12,7 @@ The Backend is divided in towlayer.
 
 ## API-CATALOGO
 
-This layer is to return a product from database
+This layer is to return a product from database. You need to create a database with [Mysql](https://dev.mysql.com/doc/), check the ormconfig.file, verify the database name, the username and the password, that informantion must be correct to backend connect with database
 
 ### 1. How to initialize?
 Run the code: 
